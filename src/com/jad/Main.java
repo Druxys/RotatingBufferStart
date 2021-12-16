@@ -6,7 +6,7 @@ import java.util.Random;
 public class Main {
 
     public static void main(String[] args) {
-        RotatingBuffer<Integer> buffer = new RotatingBuffer<>(Integer.class, 2);
+        RotatingBuffer<Integer> buffer = new RotatingBuffer(2);
         Random rand = new Random();
         Thread writer = new Thread(() -> {
             for (int i = 0; i < 100; i++) {
@@ -30,7 +30,7 @@ public class Main {
                     System.out.print(".");
                 }
                 try {
-                    Thread.sleep(rand.nextInt(500));
+                    Thread.sleep(rand.nextInt(250));
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
